@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  validates: username, presence: { message: "provide a user name" } unique:true length: { minimum: 5 message: "must be more than 4 letters"}
-  validates: email, presence:true { message: "provide an email address" } unique:true confirmation: true
-  validates: password, presence:true length: {minimum: 6 message: "password must be more than 5 characters" }
+  has_many :Post
+
+  validates :username, presence: true, uniqueness:true, length: { minimum: 5 }
+  validates :email, presence: true, uniqueness:true, confirmation: true
+  validates :password, presence: true, length: {minimum: 6 }
 end
