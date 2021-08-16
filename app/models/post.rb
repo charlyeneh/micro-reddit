@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :User
-  has_many :Comment
+  belongs_to :user
+  has_many :comments
 
   validates :topic, presence: true, length: { minimum: 10 }
   validates :article, presence: true, length: { minimum: 20 }
